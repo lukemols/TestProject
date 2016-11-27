@@ -3,6 +3,13 @@
 
 
     <head>
+
+
+<script type="text/javascript" src="/static/js/analytics.js"></script>
+<script type="text/javascript">archive_analytics.values.server_name="wwwb-app19.us.archive.org";archive_analytics.values.server_ms=312;</script>
+<link type="text/css" rel="stylesheet" href="/static/css/banner-styles.css"/>
+
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>AllertaLiguria - Homepage</title>
@@ -151,7 +158,7 @@ infoComuni["PIANA CRIXIA"] = {classificazione: "INTERNO", zona: "D", flag_bacini
 infoComuni["PIETRA LIGURE"] = {classificazione: "COSTIERO", zona: "A", flag_bacini_piccoli: "Y", flag_bacini_medi: "Y", flag_bacini_grandi: "N", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: ""};
 infoComuni["PLODIO"] = {classificazione: "INTERNO", zona: "D", flag_bacini_piccoli: "Y", flag_bacini_medi: "N", flag_bacini_grandi: "N", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: ""};
 infoComuni["PONTINVREA"] = {classificazione: "INTERNO", zona: "D", flag_bacini_piccoli: "Y", flag_bacini_medi: "Y", flag_bacini_grandi: "N", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: ""};
-infoComuni["QUILIANO"] = {classificazione: "INTERNO", zona: "B", flag_bacini_piccoli: "Y", flag_bacini_medi: "Y", flag_bacini_grandi: "N", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: ""};
+infoComuni["QUILIANO"] = {classificazione: "COSTIERO", zona: "B", flag_bacini_piccoli: "Y", flag_bacini_medi: "Y", flag_bacini_grandi: "N", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: ""};
 infoComuni["RIALTO"] = {classificazione: "INTERNO", zona: "A", flag_bacini_piccoli: "Y", flag_bacini_medi: "Y", flag_bacini_grandi: "N", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: ""};
 infoComuni["ROCCAVIGNALE"] = {classificazione: "INTERNO", zona: "D", flag_bacini_piccoli: "Y", flag_bacini_medi: "Y", flag_bacini_grandi: "Y", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: "BORMIDA MILLESIMO"};
 infoComuni["SASSELLO"] = {classificazione: "INTERNO", zona: "D", flag_bacini_piccoli: "Y", flag_bacini_medi: "Y", flag_bacini_grandi: "N", lista_bacini_piccoli: "", lista_bacini_medi: "", lista_bacini_grandi: ""};
@@ -468,6 +475,192 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
     </head>
     <body>
 
+
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script type="text/javascript" src="/static/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="/static/js/graph-calc.js" ></script>
+<script type="text/javascript">//<![CDATA[
+var __wm = (function(imgWidth,imgHeight,yearImgWidth,monthImgWidth){
+var wbPrefix = "/web/";
+var wbCurrentUrl = "http://www.allertaliguria.gov.it/";
+
+var firstYear = 1996;
+var displayDay = "19";
+var displayMonth = "gen";
+var displayYear = "2016";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var $D=document,$=function(n){return document.getElementById(n)};
+var trackerVal,curYear = -1,curMonth = -1;
+var yearTracker,monthTracker;
+function showTrackers(val) {
+  if (val===trackerVal) return;
+  var $ipp=$("wm-ipp");
+  var $y=$("displayYearEl"),$m=$("displayMonthEl"),$d=$("displayDayEl");
+  if (val) {
+    $ipp.className="hi";
+  } else {
+    $ipp.className="";
+    $y.innerHTML=displayYear;$m.innerHTML=displayMonth;$d.innerHTML=displayDay;
+  }
+  yearTracker.style.display=val?"inline":"none";
+  monthTracker.style.display=val?"inline":"none";
+  trackerVal = val;
+}
+function trackMouseMove(event,element) {
+  var eventX = getEventX(event);
+  var elementX = getElementX(element);
+  var xOff = Math.min(Math.max(0, eventX - elementX),imgWidth);
+  var monthOff = xOff % yearImgWidth;
+
+  var year = Math.floor(xOff / yearImgWidth);
+  var monthOfYear = Math.min(11,Math.floor(monthOff / monthImgWidth));
+  // 1 extra border pixel at the left edge of the year:
+  var month = (year * 12) + monthOfYear;
+  var day = monthOff % 2==1?15:1;
+  var dateString = zeroPad(year + firstYear) + zeroPad(monthOfYear+1,2) +
+    zeroPad(day,2) + "000000";
+
+  $("displayYearEl").innerHTML=year+firstYear;
+  $("displayMonthEl").innerHTML=prettyMonths[monthOfYear];
+  // looks too jarring when it changes..
+  //$("displayDayEl").innerHTML=zeroPad(day,2);
+  var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+  $("wm-graph-anchor").href=url;
+
+  if(curYear != year) {
+    var yrOff = year * yearImgWidth;
+    yearTracker.style.left = yrOff + "px";
+    curYear = year;
+  }
+  if(curMonth != month) {
+    var mtOff = year + (month * monthImgWidth) + 1;
+    monthTracker.style.left = mtOff + "px";
+    curMonth = month;
+  }
+}
+function hideToolbar() {
+  $("wm-ipp").style.display="none";
+}
+function bootstrap() {
+  var $spk=$("wm-ipp-sparkline");
+  yearTracker=$D.createElement('div');
+  yearTracker.className='yt';
+  with(yearTracker.style){
+    display='none';width=yearImgWidth+"px";height=imgHeight+"px";
+  }
+  monthTracker=$D.createElement('div');
+  monthTracker.className='mt';
+  with(monthTracker.style){
+    display='none';width=monthImgWidth+"px";height=imgHeight+"px";
+  }
+  $spk.appendChild(yearTracker);
+  $spk.appendChild(monthTracker);
+
+  var $ipp=$("wm-ipp");
+  $ipp&&disclaimElement($ipp);
+}
+return{st:showTrackers,mv:trackMouseMove,h:hideToolbar,bt:bootstrap};
+})(525, 27, 25, 2);//]]>
+</script>
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  min-width:800px !important;
+}
+</style>
+<div id="wm-ipp" lang="en" style="display:none;">
+
+<div style="position:fixed;left:0;top:0;width:100%!important">
+<div id="wm-ipp-inside">
+   <table style="width:100%;"><tbody><tr>
+   <td id="wm-logo">
+       <a href="/web/" title="Wayback Machine home page"><img src="/static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0" /></a>
+   </td>
+   <td class="c">
+       <table style="margin:0 auto;"><tbody><tr>
+       <td class="u" colspan="2">
+       <form target="_top" method="get" action="/web/form-submit.jsp" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://www.allertaliguria.gov.it/" style="width:400px;" onfocus="this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20160119003007" /><input type="submit" value="Go" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td class="n" rowspan="2">
+           <table><tbody>
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr class="m">
+           	<td class="b" nowrap="nowrap">
+		
+		    <a href="/web/20151215191652/http://www.allertaliguria.gov.it/" title="15 dic 2015">DIC</a>
+		
+		</td>
+		<td class="c" id="displayMonthEl" title="You are here: 0:30:07 gen 19, 2016">GEN</td>
+		<td class="f" nowrap="nowrap">
+		
+		    <a href="/web/20160220174652/http://www.allertaliguria.gov.it/" title="20 feb 2016"><strong>FEB</strong></a>
+		
+                </td>
+	    </tr>
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr class="d">
+               <td class="b" nowrap="nowrap">
+               
+                   <a href="/web/20160113102651/http://allertaliguria.gov.it/" title="10:26:51 gen 13, 2016"><img src="/static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a>
+               
+               </td>
+               <td class="c" id="displayDayEl" style="width:34px;font-size:24px;" title="You are here: 0:30:07 gen 19, 2016">19</td>
+	       <td class="f" nowrap="nowrap">
+               
+		   <a href="/web/20160206183157/http://www.allertaliguria.gov.it/" title="18:31:57 feb 6, 2016"><img src="/static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0" /></a>
+	       
+	       </td>
+           </tr>
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr class="y">
+	       <td class="b" nowrap="nowrap">
+               
+                   <a href="/web/20141221224413/http://www.allertaliguria.gov.it/" title="21 dic 2014"><strong>2014</strong></a>
+               
+               </td>
+               <td class="c" id="displayYearEl" title="You are here: 0:30:07 gen 19, 2016">2016</td>
+	       <td class="f" nowrap="nowrap">
+               
+                   2017
+               
+	       </td>
+           </tr>
+           </tbody></table>
+       </td>
+       </tr>
+       <tr>
+       <td class="s">
+           <a class="t" href="/web/20160119003007*/http://www.allertaliguria.gov.it/" title="See a list of every capture for this URL">45 captures</a>
+           <div class="r" title="Timespan for captures of this URL">15 gen 13 - 24 ott 16</div>
+       </td>
+       <td class="k">
+       <a href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" title="Explore captures for this URL">
+	 <img id="sparklineImgId" alt="sparklines"
+		 onmouseover="__wm.st(1)" onmouseout="__wm.st(0)"
+		 onmousemove="__wm.mv(event,this)"
+		 width="525"
+		 height="27"
+		 border="0"
+		 src="/web/jsp/graph.jsp?graphdata=525_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000000000000_2007:-1:000000000000_2008:-1:000000000000_2009:-1:000000000000_2010:-1:000000000000_2011:-1:000000000000_2012:-1:000000000000_2013:-1:100000000001_2014:-1:110000000011_2015:-1:020101010411_2016:0:359610100300" />
+       </div>
+       </a>
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td class="r">
+       <a href="#close" onclick="__wm.h();return false;" style="background-image:url(/static/images/toolbar/wm_tb_close.png);top:5px;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="background-image:url(/static/images/toolbar/wm_tb_help.png);bottom:5px;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+</div>
+</div>
+</div>
+<script type="text/javascript">__wm.bt();</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+
                 
         <!-- Header -->
 <section class="al-header hide-for-small">
@@ -484,9 +677,9 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                 </div>
                 <div id="al-header-right" class="large-4 medium-5 columns">
                     <div id="al-loghi-header" class="right">
-                        <a href="http://www.arpal.gov.it" target="_blank"><div id="al-logo-header-arpal" class="right"><img src="img/loghi/logo_arpal_liguria.png" alt="ARPAL" title="Vai al sito ARPAL" /></div></a>
-                        <a href="http://www.regione.liguria.it/uffici.html?id_dipartimento=10&amp;controller=contenutiufficio&amp;id_ufficio=34&amp;view=contenutiufficio" target="_blank"><div id="al-logo-header-protezione-civile" class="right"><img src="img/loghi/logo_protezione_civile.png" alt="Protezione Civile Regione Liguria" title="Vai al sito della Protezione Civile Regione Liguria" /></div></a>
-                        <a href="http://www.regione.liguria.it" target="_blank"><div id="al-logo-header-regione-liguria" class="right"><img src="img/loghi/logo_regione_liguria.png" alt="Regione Liguria" title="Vai al sito della Regione Liguria" /></div></a>
+                        <a href="/web/20160119003007/http://www.arpal.gov.it/" target="_blank"><div id="al-logo-header-arpal" class="right"><img src="img/loghi/logo_arpal_liguria.png" alt="ARPAL" title="Vai al sito ARPAL" /></div></a>
+                        <a href="/web/20160119003007/http://www.regione.liguria.it/uffici.html?id_dipartimento=10&amp;controller=contenutiufficio&amp;id_ufficio=34&amp;view=contenutiufficio" target="_blank"><div id="al-logo-header-protezione-civile" class="right"><img src="img/loghi/logo_protezione_civile.png" alt="Protezione Civile Regione Liguria" title="Vai al sito della Protezione Civile Regione Liguria" /></div></a>
+                        <a href="/web/20160119003007/http://www.regione.liguria.it/" target="_blank"><div id="al-logo-header-regione-liguria" class="right"><img src="img/loghi/logo_regione_liguria.png" alt="Regione Liguria" title="Vai al sito della Regione Liguria" /></div></a>
                     </div>
                 </div>
             </div>
@@ -537,7 +730,7 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         <a href="bollettino_vigilanza_arpal.php">Bollettino di Vigilanza/Avviso meteo di ARPAL</a>
                                     </li>
                                     <li class="">
-                                        <a href="criticita_idro_arpal.php">Messaggio/Avviso di Criticità Idrologica di ARPAL</a>
+                                        <a href="criticita_idro_arpal.php">Messaggio/Avviso di Criticità Idrologica di Arpal</a>
                                     </li>
                                     <li class="">
                                         <a href="messaggi_monitoraggio_arpal.php">Monitoraggio meteoidro di ARPAL</a>
@@ -610,11 +803,11 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
 <section class="al-background-white" style="margin-top: 15px">
     <div class="row">
         <a href="index.php">
-            <div class="large-12 columns al-msgbar-green">
+            <div class="large-12 columns al-msgbar-orange">
                 <h2 class="al-text-no-underline al-text-horz-center al-text-normal">
-                    Messaggio del 26/11/2016 ore 08:50                </h2>
-                <h1 class="al-text-no-underline al-text-horz-center">Nessuna Allerta</h1>
-                <h2 class="al-text-no-underline al-text-horz-center">Rischio meteo per vento</h2>
+                    Messaggio del 18/01/2016 ore 12:31                </h2>
+                <h1 class="al-text-no-underline al-text-horz-center">ALLERTA NIVOLOGICA</h1>
+                <h2 class="al-text-no-underline al-text-horz-center">Rischio meteo per  disagio fisiologico</h2>
             </div>
         </a>
     </div>
@@ -625,12 +818,12 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                 <div class="large-6 medium-6 columns">
                     <div class="al-map-panel">
                         <div class="al-text-header al-background-gray">
-                            <h1 class="al-color-verydarkgray">LIVELLI DI ALLERTA MASSIMI PER ZONA</h1>
-                            <h3 class="al-color-verydarkgray">Seleziona la zona per validità, orari e dettagli</h3>
+                            <h1 class="al-color-verydarkgray">LIVELLI DI ALLERTA MASSIMI EMANATI</h1>
+                            <h3 class="al-color-verydarkgray">Seleziona la zona per validità e dettagli</h3>
                         </div>
                         <div id="al-map-liguria-panel">
                             <div style="position: relative; max-width: 463px">
-                                                                <img style="max-width: 100%; max-height: 100%" src="img/mappe/V_V_V_V_V.png"
+                                                                <img style="max-width: 100%; max-height: 100%" src="img/mappe/G_A_V_G_G.png"
                                      alt="LIVELLI DI ALLERTA MASSIMI - Seleziona la zona per validità e dettagli"
                                      title="LIVELLI DI ALLERTA MASSIMI - Seleziona la zona per validità e dettagli" />
                                 <a href="#al-zona-A" onclick="activateAccordionElement('al-accordion-zone-elem-A')">
@@ -762,6 +955,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Neve" title="Neve" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -778,6 +973,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Neve" title="Neve" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -794,6 +991,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Neve" title="Neve" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -810,6 +1009,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Neve" title="Neve" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -826,6 +1027,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Neve" title="Neve" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -906,8 +1109,6 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                     <div class="al-container al-background-lightgray">
                                         <div class="al-container-padded left al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
-                                                                                                    <img src="img/icone/spunta.png"
-                                                         alt="Rischio vento" title="Rischio vento" />
                                                                                             </div>
                                         </div>
                                         <div class="al-container-padded left al-width-33-pct">
@@ -916,6 +1117,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Rischio disagio fisiologico" title="Rischio disagio fisiologico" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -924,8 +1127,6 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                     <div class="al-container al-background-lightgray">
                                         <div class="al-container-padded left al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
-                                                                                                    <img src="img/icone/spunta.png"
-                                                         alt="Rischio vento" title="Rischio vento" />
                                                                                             </div>
                                         </div>
                                         <div class="al-container-padded left al-width-33-pct">
@@ -934,6 +1135,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Rischio disagio fisiologico" title="Rischio disagio fisiologico" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -942,8 +1145,6 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                     <div class="al-container al-background-lightgray">
                                         <div class="al-container-padded left al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
-                                                                                                    <img src="img/icone/spunta.png"
-                                                         alt="Rischio vento" title="Rischio vento" />
                                                                                             </div>
                                         </div>
                                         <div class="al-container-padded left al-width-33-pct">
@@ -952,6 +1153,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Rischio disagio fisiologico" title="Rischio disagio fisiologico" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -960,8 +1163,6 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                     <div class="al-container al-background-lightgray">
                                         <div class="al-container-padded left al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
-                                                                                                    <img src="img/icone/spunta.png"
-                                                         alt="Rischio vento" title="Rischio vento" />
                                                                                             </div>
                                         </div>
                                         <div class="al-container-padded left al-width-33-pct">
@@ -970,6 +1171,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Rischio disagio fisiologico" title="Rischio disagio fisiologico" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -978,8 +1181,6 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                     <div class="al-container al-background-lightgray">
                                         <div class="al-container-padded left al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
-                                                                                                    <img src="img/icone/spunta.png"
-                                                         alt="Rischio vento" title="Rischio vento" />
                                                                                             </div>
                                         </div>
                                         <div class="al-container-padded left al-width-33-pct">
@@ -988,6 +1189,8 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         </div>
                                         <div class="al-container-padded right al-width-33-pct">
                                             <div class="al-table-cell al-background-white">
+                                                                                                    <img src="img/icone/spunta.png"
+                                                         alt="Rischio disagio fisiologico" title="Rischio disagio fisiologico" />
                                                                                             </div>
                                         </div>
                                     </div>
@@ -1216,10 +1419,43 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                         alt="Messaggio di allerta della Regione Liguria" title="Messaggio di allerta della Regione Liguria" />
                                 </div>
                                 <div class="al-container" style="margin-top: 10px; margin-bottom: 40px">
+                                                                            <p style="margin-bottom: 10px">
+                                            <span>Data emissione: </span>
+                                            <span class="al-text-italic">
+                                                18 gennaio 2016 ore 12:31                                            </span>
+                                        </p>
                                                                         
                                     <p>
-                                        Nessuna allerta                                    </p>
+                                                                            </p>
                                 </div>
+                                                                    <div class="al-container right al-position-absolute al-position-bottom al-position-right hide-for-small">
+                                        
+<div class="al-container">
+    <a class="small button al-button-lightgray" target="_blank" href="docs/protciv_5220.pdf">
+        <span class="al-button-caption">
+            Scarica il PDF  
+        </span>
+        <span class="al-button-filesize">
+             (0.14 MB)        </span>
+        <img src="img/icone/pdf_icon_small.png"
+             alt="Scarica il file in formato PDF"
+             title="Scarica il file in formato PDF" />
+    </a>
+</div>                                    </div>
+                                    <div class="al-container right al-position-right show-for-small">
+                                        
+<div class="al-container">
+    <a class="small button al-button-lightgray" target="_blank" href="docs/protciv_5220.pdf">
+        <span class="al-button-caption">
+            Scarica il PDF  
+        </span>
+        <span class="al-button-filesize">
+             (0.14 MB)        </span>
+        <img src="img/icone/pdf_icon_small.png"
+             alt="Scarica il file in formato PDF"
+             title="Scarica il file in formato PDF" />
+    </a>
+</div>                                    </div>
                                                             </div>
                         </div>
                         <div class="large-4 medium-4 columns" data-equalizer-watch>
@@ -1239,7 +1475,7 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                                                             <p style="margin-bottom: 10px">
                                             <span>Data emissione: </span>
                                             <span class="al-text-italic">
-                                                26 novembre 2016 ore 08:50                                            </span>
+                                                18 gennaio 2016 ore 11:45                                            </span>
                                         </p>
                                                                         
                                     <p>
@@ -1248,12 +1484,12 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                                                     <div class="al-container right al-position-absolute al-position-bottom al-position-right hide-for-small">
                                         
 <div class="al-container">
-    <a class="small button al-button-lightgray" target="_blank" href="docs/vigilanza_22217.pdf">
+    <a class="small button al-button-lightgray" target="_blank" href="docs/vigilanza_5181.pdf">
         <span class="al-button-caption">
             Scarica il PDF  
         </span>
         <span class="al-button-filesize">
-             (0.09 MB)        </span>
+             (0.12 MB)        </span>
         <img src="img/icone/pdf_icon_small.png"
              alt="Scarica il file in formato PDF"
              title="Scarica il file in formato PDF" />
@@ -1262,12 +1498,12 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                     <div class="al-container right al-position-right show-for-small">
                                         
 <div class="al-container">
-    <a class="small button al-button-lightgray" target="_blank" href="docs/vigilanza_22217.pdf">
+    <a class="small button al-button-lightgray" target="_blank" href="docs/vigilanza_5181.pdf">
         <span class="al-button-caption">
             Scarica il PDF  
         </span>
         <span class="al-button-filesize">
-             (0.09 MB)        </span>
+             (0.12 MB)        </span>
         <img src="img/icone/pdf_icon_small.png"
              alt="Scarica il file in formato PDF"
              title="Scarica il file in formato PDF" />
@@ -1319,13 +1555,12 @@ infoComuni["ZIGNAGO"] = {classificazione: "INTERNO", zona: "C", flag_bacini_picc
                                             <p style="margin-bottom: 10px">
                             <span>Data emissione: </span>
                             <span class="al-text-italic">
-                                25 novembre 2016 ore 10:56                            </span>
+                                18 gennaio 2016 ore 23:46                            </span>
                         </p>
                                         
                     <p>
-                        Nelle ultime ore è stata registrata una generale attenuazione delle intensità di precipitazione, pur con locali fenomeni moderati accompagnati da rinforzi di vento.<br />
-Attualmente sono osservate precipitazioni deboli e sparse, in particolare sul savonese.<br />
-Ciò premesso, si sta...                    </p>
+                        Sul Mediterraneo occidentale sta transitando l'atteso sistema frontale che ha determinato la formazione di un minimo depressionario sul Golfo del Leone, attualmente centrato in prossimità della Sardegna nord-orientale. <br />
+Pur risultando la traiettoria e l'intensità del minimo in linea con...                    </p>
                 </div>
                                     <div class="al-container right al-position-absolute al-position-bottom al-position-right hide-for-small">
                         <div class="al-container">
@@ -1385,11 +1620,12 @@ Ciò premesso, si sta...                    </p>
     
     <div id="al-zona-A" class="al-position-absolute al-offset-down"></div>
 
-            <div class="al-container al-accordion-zone-header al-background-allerta-lightgray">
+        <a href="#panelA">
+            <div class="al-container al-accordion-zone-header al-background-allerta-yellow">
             <div class="al-container left hide-for-small">
                 <div class="al-container al-parent-centered al-accordion-zone-header-image left">
                     <div class="al-container al-child-centered">
-                        <img src="img/mappe/AREA_A_V.png" alt="Zona A" title="Zona A" />
+                        <img src="img/mappe/AREA_A_G.png" alt="Zona A" title="Zona A" />
                     </div>
                 </div>
             </div>
@@ -1409,13 +1645,163 @@ Ciò premesso, si sta...                    </p>
             </div>
             <div class="al-container al-parent-centered al-accordion-zone-header-message left">
                 <div class="al-container al-child-centered">
-                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Nessuna allerta</h6>
+                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Emessa allerta gialla</h6>
                 </div>
             </div>
         </div>
+        </a>
         <div id="panelA" class="content">
         <div class="row">
             <div class="large-8 medium-8 small-12 columns">
+                                <!-- Dettaglio allerta nivologica zona -->
+                <div class="al-container al-width-100-pct al-background-darkgray">
+                    <div class="row">
+                        <div class="large-12 medium-12 small-12 columns al-parent-centered al-accordion-zone-subheader-message left">
+                            <div class="al-container al-child-centered" style="padding-left: 15px; padding-right: 15px">
+                                <h1 class="al-color-white">
+                                    ALLERTA NIVOLOGICA GIALLA PER NEVE                                </h1>
+                                <p class="al-color-white">
+                                    dalle ore 18:00 del 18/01/2016 alle ore 03:00 del 19/01/2016                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-equalizer>
+                    <div class="large-6 medium-6 small-12 columns" data-equalizer-watch>
+
+                        <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO NEVE<br>(livelli allerta specifici sui comuni):</span></p>
+
+                            <div class="al-container hide-for-small">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-right left al-width-50-pct">
+                                        <p style="text-align: center">Comuni costieri</p>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <p style="text-align: center">Comuni interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-right left al-width-50-pct">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            <div class="al-container show-for-small">
+                                <div class="al-container" style="margin-top: 10px">
+                                                                        <div class="al-container al-parent-centered left al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-child-centered" style="height: 50px">
+                                            <p style="text-align: center">Comuni costieri</p>
+                                        </div>
+                                    </div>
+                                    <div class="al-container right al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                        <div class="al-container al-parent-centered left al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-child-centered" style="height: 50px">
+                                            <p style="text-align: center">Comuni interno</p>
+                                        </div>
+                                    </div>
+                                    <div class="al-container right al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="large-6 medium-6 columns hide-for-small" data-equalizer-watch>
+                                                <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO METEO<br>(classificazione fenomeni meteo):</span></p>
+
+                            <div class="al-container">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                        <p style="text-align: center">Neve costa</p>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <p style="text-align: center">Neve interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                        <div class="al-table-cell-icon">
+                                            <img class="al-background-white" 
+                                                 src="img/icone/NEVE_SPOLVERATA_BIANCO.png"
+                                                 style="width: 48px; height: 48px"
+                                                 alt="Neve spolverata bianco"
+                                                 title="Neve spolverata bianco" />
+                                        </div>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <div class="al-table-cell-icon">
+                                            <img class="al-background-white" 
+                                                 src="img/icone/NEVE_DEBOLE_BIANCO.png"
+                                                 style="width: 48px; height: 48px"
+                                                 alt="Neve debole bianco"
+                                                 title="Neve debole bianco" />
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            
+                        </div>
+                                            </div>
+                </div>
+
+                <div class="al-container al-width-100-pct hide-for-small">
+                    <div class="al-container" style="border-top: 2px solid; border-color: #cbcbcb">
+                        <div class="row" style="margin: 10px">
+                            <div class="large-6 medium-6 columns">
+                                <div class="al-container" style="position: relative">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/info.png" style="width: 20px; height: 20px; margin-right: 5px"
+                                             alt="Scopri la classificazione del tuo comune" title="Scopri la classificazione del tuo comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <div class="ui-widget">
+                                            <label for="comuni-cls-zona-A">Scopri la classificazione del tuo comune:</label>
+                                            <input id="comuni-cls-zona-A" style="width: 100%">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 10px">
+                                    <a class="small button al-button-lightgray right" href="#" onclick="updateClassificazioneComuni('A'); return false;">CERCA</a>
+                                </div>
+                            </div>
+                            <div class="large-6 medium-6 columns">
+                                <div id="pnl-comune-cls-zona-A" class="al-container" style="height: 22px">
+                                    <span id="lbl-comune-cls-zona-A"></span>
+                                </div>
+                                <div id="pnl-comune-cls-value-zona-A" class="al-container" style="position: relative; height: 22px">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/spunta.png" style="width: 20px; height: 17px; margin-right: 5px"
+                                             alt="Classificazione del comune" title="Classificazione del comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <span id="lbl-comune-cls-value-zona-A"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 
                 <!-- Dettaglio rischio meteo zona -->
                                 <div class="al-container al-width-100-pct al-background-darkgray">
@@ -1434,18 +1820,18 @@ Ciò premesso, si sta...                    </p>
 
                             <div class="al-container">
                                 <div class="al-container" style="margin-bottom: 5px">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
-                                        <p style="text-align: center">Vento</p>
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
+                                        <p style="text-align: center">Disagio fisiologico</p>
                                     </div>
                                                                     </div>
                                 <div class="al-container">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
                                         <div class="al-table-cell-icon">
                                             <img class="al-background-white" 
-                                                 src="img/icone/VENTO_FORTE_N_BIANCO.png"
+                                                 src="img/icone/DISAGIO_FISIOLOGICO_FREDDO_BIANCO.png"
                                                  style="width: 48px; height: 48px"
-                                                 alt="Vento forte n bianco"
-                                                 title="Vento forte n bianco" />
+                                                 alt="Disagio fisiologico freddo bianco"
+                                                 title="Disagio fisiologico freddo bianco" />
                                         </div>
                                     </div>
                                                                     </div>
@@ -1540,13 +1926,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-piogge-diffuse-A" class="accordion-navigation active">
+        <dd id="al-accordion-legenda-elem-piogge-diffuse-A" class="accordion-navigation ">
             <a href="#al-panel-piogge-diffuse-A">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>PIOGGE DIFFUSE</h2>
                 </div>
             </a>
-            <div id="al-panel-piogge-diffuse-A" class="content active al-accordion-legenda-elem-body">
+            <div id="al-panel-piogge-diffuse-A" class="content  al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -1600,13 +1986,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-neve-A" class="accordion-navigation ">
+        <dd id="al-accordion-legenda-elem-neve-A" class="accordion-navigation active">
             <a href="#al-panel-neve-A">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>NEVE</h2>
                 </div>
             </a>
-            <div id="al-panel-neve-A" class="content  al-accordion-legenda-elem-body">
+            <div id="al-panel-neve-A" class="content active al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -1737,11 +2123,12 @@ Ciò premesso, si sta...                    </p>
     
     <div id="al-zona-B" class="al-position-absolute al-offset-down"></div>
 
-            <div class="al-container al-accordion-zone-header al-background-allerta-lightgray">
+        <a href="#panelB">
+            <div class="al-container al-accordion-zone-header al-background-allerta-orange">
             <div class="al-container left hide-for-small">
                 <div class="al-container al-parent-centered al-accordion-zone-header-image left">
                     <div class="al-container al-child-centered">
-                        <img src="img/mappe/AREA_B_V.png" alt="Zona B" title="Zona B" />
+                        <img src="img/mappe/AREA_B_A.png" alt="Zona B" title="Zona B" />
                     </div>
                 </div>
             </div>
@@ -1761,13 +2148,163 @@ Ciò premesso, si sta...                    </p>
             </div>
             <div class="al-container al-parent-centered al-accordion-zone-header-message left">
                 <div class="al-container al-child-centered">
-                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Nessuna allerta</h6>
+                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Emessa allerta arancione</h6>
                 </div>
             </div>
         </div>
+        </a>
         <div id="panelB" class="content">
         <div class="row">
             <div class="large-8 medium-8 small-12 columns">
+                                <!-- Dettaglio allerta nivologica zona -->
+                <div class="al-container al-width-100-pct al-background-darkgray">
+                    <div class="row">
+                        <div class="large-12 medium-12 small-12 columns al-parent-centered al-accordion-zone-subheader-message left">
+                            <div class="al-container al-child-centered" style="padding-left: 15px; padding-right: 15px">
+                                <h1 class="al-color-white">
+                                    ALLERTA NIVOLOGICA ARANCIONE PER NEVE                                </h1>
+                                <p class="al-color-white">
+                                    dalle ore 18:00 del 18/01/2016 alle ore 03:00 del 19/01/2016                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-equalizer>
+                    <div class="large-6 medium-6 small-12 columns" data-equalizer-watch>
+
+                        <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO NEVE<br>(livelli allerta specifici sui comuni):</span></p>
+
+                            <div class="al-container hide-for-small">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-right left al-width-50-pct">
+                                        <p style="text-align: center">Comuni costieri</p>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <p style="text-align: center">Comuni interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-right left al-width-50-pct">
+                                        <div class="al-table-cell al-background-allerta-orange">
+                                            <p>ARANCIONE</p>
+                                        </div>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            <div class="al-container show-for-small">
+                                <div class="al-container" style="margin-top: 10px">
+                                                                        <div class="al-container al-parent-centered left al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-child-centered" style="height: 50px">
+                                            <p style="text-align: center">Comuni costieri</p>
+                                        </div>
+                                    </div>
+                                    <div class="al-container right al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-table-cell al-background-allerta-orange">
+                                            <p>ARANCIONE</p>
+                                        </div>
+                                    </div>
+                                                                        <div class="al-container al-parent-centered left al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-child-centered" style="height: 50px">
+                                            <p style="text-align: center">Comuni interno</p>
+                                        </div>
+                                    </div>
+                                    <div class="al-container right al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="large-6 medium-6 columns hide-for-small" data-equalizer-watch>
+                                                <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO METEO<br>(classificazione fenomeni meteo):</span></p>
+
+                            <div class="al-container">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                        <p style="text-align: center">Neve costa</p>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <p style="text-align: center">Neve interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                        <div class="al-table-cell-icon">
+                                            <img class="al-background-white" 
+                                                 src="img/icone/NEVE_DEBOLE_GRIGIO.png"
+                                                 style="width: 48px; height: 48px"
+                                                 alt="Neve debole grigio"
+                                                 title="Neve debole grigio" />
+                                        </div>
+                                    </div>
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <div class="al-table-cell-icon">
+                                            <img class="al-background-white" 
+                                                 src="img/icone/NEVE_DEBOLE_BIANCO.png"
+                                                 style="width: 48px; height: 48px"
+                                                 alt="Neve debole bianco"
+                                                 title="Neve debole bianco" />
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            
+                        </div>
+                                            </div>
+                </div>
+
+                <div class="al-container al-width-100-pct hide-for-small">
+                    <div class="al-container" style="border-top: 2px solid; border-color: #cbcbcb">
+                        <div class="row" style="margin: 10px">
+                            <div class="large-6 medium-6 columns">
+                                <div class="al-container" style="position: relative">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/info.png" style="width: 20px; height: 20px; margin-right: 5px"
+                                             alt="Scopri la classificazione del tuo comune" title="Scopri la classificazione del tuo comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <div class="ui-widget">
+                                            <label for="comuni-cls-zona-B">Scopri la classificazione del tuo comune:</label>
+                                            <input id="comuni-cls-zona-B" style="width: 100%">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 10px">
+                                    <a class="small button al-button-lightgray right" href="#" onclick="updateClassificazioneComuni('B'); return false;">CERCA</a>
+                                </div>
+                            </div>
+                            <div class="large-6 medium-6 columns">
+                                <div id="pnl-comune-cls-zona-B" class="al-container" style="height: 22px">
+                                    <span id="lbl-comune-cls-zona-B"></span>
+                                </div>
+                                <div id="pnl-comune-cls-value-zona-B" class="al-container" style="position: relative; height: 22px">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/spunta.png" style="width: 20px; height: 17px; margin-right: 5px"
+                                             alt="Classificazione del comune" title="Classificazione del comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <span id="lbl-comune-cls-value-zona-B"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 
                 <!-- Dettaglio rischio meteo zona -->
                                 <div class="al-container al-width-100-pct al-background-darkgray">
@@ -1786,18 +2323,18 @@ Ciò premesso, si sta...                    </p>
 
                             <div class="al-container">
                                 <div class="al-container" style="margin-bottom: 5px">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
-                                        <p style="text-align: center">Vento</p>
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
+                                        <p style="text-align: center">Disagio fisiologico</p>
                                     </div>
                                                                     </div>
                                 <div class="al-container">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
                                         <div class="al-table-cell-icon">
                                             <img class="al-background-white" 
-                                                 src="img/icone/VENTO_FORTE_N_BIANCO.png"
+                                                 src="img/icone/DISAGIO_FISIOLOGICO_MOLTO_FREDDO_GRIGIO.png"
                                                  style="width: 48px; height: 48px"
-                                                 alt="Vento forte n bianco"
-                                                 title="Vento forte n bianco" />
+                                                 alt="Disagio fisiologico molto freddo grigio"
+                                                 title="Disagio fisiologico molto freddo grigio" />
                                         </div>
                                     </div>
                                                                     </div>
@@ -1892,13 +2429,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-piogge-diffuse-B" class="accordion-navigation active">
+        <dd id="al-accordion-legenda-elem-piogge-diffuse-B" class="accordion-navigation ">
             <a href="#al-panel-piogge-diffuse-B">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>PIOGGE DIFFUSE</h2>
                 </div>
             </a>
-            <div id="al-panel-piogge-diffuse-B" class="content active al-accordion-legenda-elem-body">
+            <div id="al-panel-piogge-diffuse-B" class="content  al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -1952,13 +2489,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-neve-B" class="accordion-navigation ">
+        <dd id="al-accordion-legenda-elem-neve-B" class="accordion-navigation active">
             <a href="#al-panel-neve-B">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>NEVE</h2>
                 </div>
             </a>
-            <div id="al-panel-neve-B" class="content  al-accordion-legenda-elem-body">
+            <div id="al-panel-neve-B" class="content active al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -2138,18 +2675,18 @@ Ciò premesso, si sta...                    </p>
 
                             <div class="al-container">
                                 <div class="al-container" style="margin-bottom: 5px">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
-                                        <p style="text-align: center">Vento</p>
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
+                                        <p style="text-align: center">Disagio fisiologico</p>
                                     </div>
                                                                     </div>
                                 <div class="al-container">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
                                         <div class="al-table-cell-icon">
                                             <img class="al-background-white" 
-                                                 src="img/icone/VENTO_FORTE_N_BIANCO.png"
+                                                 src="img/icone/DISAGIO_FISIOLOGICO_FREDDO_BIANCO.png"
                                                  style="width: 48px; height: 48px"
-                                                 alt="Vento forte n bianco"
-                                                 title="Vento forte n bianco" />
+                                                 alt="Disagio fisiologico freddo bianco"
+                                                 title="Disagio fisiologico freddo bianco" />
                                         </div>
                                     </div>
                                                                     </div>
@@ -2244,13 +2781,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-piogge-diffuse-C" class="accordion-navigation active">
+        <dd id="al-accordion-legenda-elem-piogge-diffuse-C" class="accordion-navigation ">
             <a href="#al-panel-piogge-diffuse-C">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>PIOGGE DIFFUSE</h2>
                 </div>
             </a>
-            <div id="al-panel-piogge-diffuse-C" class="content active al-accordion-legenda-elem-body">
+            <div id="al-panel-piogge-diffuse-C" class="content  al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -2304,13 +2841,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-neve-C" class="accordion-navigation ">
+        <dd id="al-accordion-legenda-elem-neve-C" class="accordion-navigation active">
             <a href="#al-panel-neve-C">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>NEVE</h2>
                 </div>
             </a>
-            <div id="al-panel-neve-C" class="content  al-accordion-legenda-elem-body">
+            <div id="al-panel-neve-C" class="content active al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -2441,11 +2978,12 @@ Ciò premesso, si sta...                    </p>
     
     <div id="al-zona-D" class="al-position-absolute al-offset-down"></div>
 
-            <div class="al-container al-accordion-zone-header al-background-allerta-lightgray">
+        <a href="#panelD">
+            <div class="al-container al-accordion-zone-header al-background-allerta-yellow">
             <div class="al-container left hide-for-small">
                 <div class="al-container al-parent-centered al-accordion-zone-header-image left">
                     <div class="al-container al-child-centered">
-                        <img src="img/mappe/AREA_D_V.png" alt="Zona D" title="Zona D" />
+                        <img src="img/mappe/AREA_D_G.png" alt="Zona D" title="Zona D" />
                     </div>
                 </div>
             </div>
@@ -2465,13 +3003,133 @@ Ciò premesso, si sta...                    </p>
             </div>
             <div class="al-container al-parent-centered al-accordion-zone-header-message left">
                 <div class="al-container al-child-centered">
-                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Nessuna allerta</h6>
+                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Emessa allerta gialla</h6>
                 </div>
             </div>
         </div>
+        </a>
         <div id="panelD" class="content">
         <div class="row">
             <div class="large-8 medium-8 small-12 columns">
+                                <!-- Dettaglio allerta nivologica zona -->
+                <div class="al-container al-width-100-pct al-background-darkgray">
+                    <div class="row">
+                        <div class="large-12 medium-12 small-12 columns al-parent-centered al-accordion-zone-subheader-message left">
+                            <div class="al-container al-child-centered" style="padding-left: 15px; padding-right: 15px">
+                                <h1 class="al-color-white">
+                                    ALLERTA NIVOLOGICA GIALLA PER NEVE                                </h1>
+                                <p class="al-color-white">
+                                    dalle ore 18:00 del 18/01/2016 alle ore 03:00 del 19/01/2016                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-equalizer>
+                    <div class="large-6 medium-6 small-12 columns" data-equalizer-watch>
+
+                        <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO NEVE<br>(livelli allerta specifici sui comuni):</span></p>
+
+                            <div class="al-container hide-for-small">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <p style="text-align: center">Comuni interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            <div class="al-container show-for-small">
+                                <div class="al-container" style="margin-top: 10px">
+                                                                        <div class="al-container al-parent-centered left al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-child-centered" style="height: 50px">
+                                            <p style="text-align: center">Comuni interno</p>
+                                        </div>
+                                    </div>
+                                    <div class="al-container right al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="large-6 medium-6 columns hide-for-small" data-equalizer-watch>
+                                                <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO METEO<br>(classificazione fenomeni meteo):</span></p>
+
+                            <div class="al-container">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <p style="text-align: center">Neve interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <div class="al-table-cell-icon">
+                                            <img class="al-background-white" 
+                                                 src="img/icone/NEVE_DEBOLE_BIANCO.png"
+                                                 style="width: 48px; height: 48px"
+                                                 alt="Neve debole bianco"
+                                                 title="Neve debole bianco" />
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            
+                        </div>
+                                            </div>
+                </div>
+
+                <div class="al-container al-width-100-pct hide-for-small">
+                    <div class="al-container" style="border-top: 2px solid; border-color: #cbcbcb">
+                        <div class="row" style="margin: 10px">
+                            <div class="large-6 medium-6 columns">
+                                <div class="al-container" style="position: relative">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/info.png" style="width: 20px; height: 20px; margin-right: 5px"
+                                             alt="Scopri la classificazione del tuo comune" title="Scopri la classificazione del tuo comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <div class="ui-widget">
+                                            <label for="comuni-cls-zona-D">Scopri la classificazione del tuo comune:</label>
+                                            <input id="comuni-cls-zona-D" style="width: 100%">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 10px">
+                                    <a class="small button al-button-lightgray right" href="#" onclick="updateClassificazioneComuni('D'); return false;">CERCA</a>
+                                </div>
+                            </div>
+                            <div class="large-6 medium-6 columns">
+                                <div id="pnl-comune-cls-zona-D" class="al-container" style="height: 22px">
+                                    <span id="lbl-comune-cls-zona-D"></span>
+                                </div>
+                                <div id="pnl-comune-cls-value-zona-D" class="al-container" style="position: relative; height: 22px">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/spunta.png" style="width: 20px; height: 17px; margin-right: 5px"
+                                             alt="Classificazione del comune" title="Classificazione del comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <span id="lbl-comune-cls-value-zona-D"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 
                 <!-- Dettaglio rischio meteo zona -->
                                 <div class="al-container al-width-100-pct al-background-darkgray">
@@ -2490,18 +3148,18 @@ Ciò premesso, si sta...                    </p>
 
                             <div class="al-container">
                                 <div class="al-container" style="margin-bottom: 5px">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
-                                        <p style="text-align: center">Vento</p>
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
+                                        <p style="text-align: center">Disagio fisiologico</p>
                                     </div>
                                                                     </div>
                                 <div class="al-container">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
                                         <div class="al-table-cell-icon">
                                             <img class="al-background-white" 
-                                                 src="img/icone/VENTO_FORTE_N_BIANCO.png"
+                                                 src="img/icone/DISAGIO_FISIOLOGICO_MOLTO_FREDDO_GRIGIO.png"
                                                  style="width: 48px; height: 48px"
-                                                 alt="Vento forte n bianco"
-                                                 title="Vento forte n bianco" />
+                                                 alt="Disagio fisiologico molto freddo grigio"
+                                                 title="Disagio fisiologico molto freddo grigio" />
                                         </div>
                                     </div>
                                                                     </div>
@@ -2596,13 +3254,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-piogge-diffuse-D" class="accordion-navigation active">
+        <dd id="al-accordion-legenda-elem-piogge-diffuse-D" class="accordion-navigation ">
             <a href="#al-panel-piogge-diffuse-D">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>PIOGGE DIFFUSE</h2>
                 </div>
             </a>
-            <div id="al-panel-piogge-diffuse-D" class="content active al-accordion-legenda-elem-body">
+            <div id="al-panel-piogge-diffuse-D" class="content  al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -2656,13 +3314,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-neve-D" class="accordion-navigation ">
+        <dd id="al-accordion-legenda-elem-neve-D" class="accordion-navigation active">
             <a href="#al-panel-neve-D">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>NEVE</h2>
                 </div>
             </a>
-            <div id="al-panel-neve-D" class="content  al-accordion-legenda-elem-body">
+            <div id="al-panel-neve-D" class="content active al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -2793,11 +3451,12 @@ Ciò premesso, si sta...                    </p>
     
     <div id="al-zona-E" class="al-position-absolute al-offset-down"></div>
 
-            <div class="al-container al-accordion-zone-header al-background-allerta-lightgray">
+        <a href="#panelE">
+            <div class="al-container al-accordion-zone-header al-background-allerta-yellow">
             <div class="al-container left hide-for-small">
                 <div class="al-container al-parent-centered al-accordion-zone-header-image left">
                     <div class="al-container al-child-centered">
-                        <img src="img/mappe/AREA_E_V.png" alt="Zona E" title="Zona E" />
+                        <img src="img/mappe/AREA_E_G.png" alt="Zona E" title="Zona E" />
                     </div>
                 </div>
             </div>
@@ -2817,13 +3476,133 @@ Ciò premesso, si sta...                    </p>
             </div>
             <div class="al-container al-parent-centered al-accordion-zone-header-message left">
                 <div class="al-container al-child-centered">
-                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Nessuna allerta</h6>
+                    <h6 class="al-display-inline al-accordion-zone-header-message-font-size">Emessa allerta gialla</h6>
                 </div>
             </div>
         </div>
+        </a>
         <div id="panelE" class="content">
         <div class="row">
             <div class="large-8 medium-8 small-12 columns">
+                                <!-- Dettaglio allerta nivologica zona -->
+                <div class="al-container al-width-100-pct al-background-darkgray">
+                    <div class="row">
+                        <div class="large-12 medium-12 small-12 columns al-parent-centered al-accordion-zone-subheader-message left">
+                            <div class="al-container al-child-centered" style="padding-left: 15px; padding-right: 15px">
+                                <h1 class="al-color-white">
+                                    ALLERTA NIVOLOGICA GIALLA PER NEVE                                </h1>
+                                <p class="al-color-white">
+                                    dalle ore 18:00 del 18/01/2016 alle ore 03:00 del 19/01/2016                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-equalizer>
+                    <div class="large-6 medium-6 small-12 columns" data-equalizer-watch>
+
+                        <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO NEVE<br>(livelli allerta specifici sui comuni):</span></p>
+
+                            <div class="al-container hide-for-small">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <p style="text-align: center">Comuni interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-50-pct">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            <div class="al-container show-for-small">
+                                <div class="al-container" style="margin-top: 10px">
+                                                                        <div class="al-container al-parent-centered left al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-child-centered" style="height: 50px">
+                                            <p style="text-align: center">Comuni interno</p>
+                                        </div>
+                                    </div>
+                                    <div class="al-container right al-width-50-pct" style="margin-top: 5px">
+                                        <div class="al-table-cell al-background-allerta-yellow">
+                                            <p>GIALLA</p>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="large-6 medium-6 columns hide-for-small" data-equalizer-watch>
+                                                <div class="al-container al-standard-panel al-dettaglio-nivo-zona-panel">
+                            <p><span class="al-text-bold">DETTAGLIO METEO<br>(classificazione fenomeni meteo):</span></p>
+
+                            <div class="al-container">
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 5px">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <p style="text-align: center">Neve interno</p>
+                                    </div>
+                                                                    </div>
+                                <div class="al-container">
+                                                                        <div class="al-container-padded-left al-container-padded-right left al-width-33-pct">
+                                        <div class="al-table-cell-icon">
+                                            <img class="al-background-white" 
+                                                 src="img/icone/NEVE_DEBOLE_BIANCO.png"
+                                                 style="width: 48px; height: 48px"
+                                                 alt="Neve debole bianco"
+                                                 title="Neve debole bianco" />
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+
+                            
+                        </div>
+                                            </div>
+                </div>
+
+                <div class="al-container al-width-100-pct hide-for-small">
+                    <div class="al-container" style="border-top: 2px solid; border-color: #cbcbcb">
+                        <div class="row" style="margin: 10px">
+                            <div class="large-6 medium-6 columns">
+                                <div class="al-container" style="position: relative">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/info.png" style="width: 20px; height: 20px; margin-right: 5px"
+                                             alt="Scopri la classificazione del tuo comune" title="Scopri la classificazione del tuo comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <div class="ui-widget">
+                                            <label for="comuni-cls-zona-E">Scopri la classificazione del tuo comune:</label>
+                                            <input id="comuni-cls-zona-E" style="width: 100%">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="al-container" style="margin-top: 10px; margin-bottom: 10px">
+                                    <a class="small button al-button-lightgray right" href="#" onclick="updateClassificazioneComuni('E'); return false;">CERCA</a>
+                                </div>
+                            </div>
+                            <div class="large-6 medium-6 columns">
+                                <div id="pnl-comune-cls-zona-E" class="al-container" style="height: 22px">
+                                    <span id="lbl-comune-cls-zona-E"></span>
+                                </div>
+                                <div id="pnl-comune-cls-value-zona-E" class="al-container" style="position: relative; height: 22px">
+                                    <div class="al-container" style="width: 25px; position: absolute">
+                                        <img src="img/icone/spunta.png" style="width: 20px; height: 17px; margin-right: 5px"
+                                             alt="Classificazione del comune" title="Classificazione del comune" />
+                                    </div>
+                                    <div class="al-container" style="padding-left: 25px">
+                                        <span id="lbl-comune-cls-value-zona-E"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 
                 <!-- Dettaglio rischio meteo zona -->
                                 <div class="al-container al-width-100-pct al-background-darkgray">
@@ -2842,18 +3621,18 @@ Ciò premesso, si sta...                    </p>
 
                             <div class="al-container">
                                 <div class="al-container" style="margin-bottom: 5px">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
-                                        <p style="text-align: center">Vento</p>
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
+                                        <p style="text-align: center">Disagio fisiologico</p>
                                     </div>
                                                                     </div>
                                 <div class="al-container">
-                                                                        <div class="al-container-padded-right left al-width-33-pct">
+                                                                        <div class="al-container-padded-left left al-width-33-pct">
                                         <div class="al-table-cell-icon">
                                             <img class="al-background-white" 
-                                                 src="img/icone/VENTO_FORTE_N_BIANCO.png"
+                                                 src="img/icone/DISAGIO_FISIOLOGICO_MOLTO_FREDDO_GRIGIO.png"
                                                  style="width: 48px; height: 48px"
-                                                 alt="Vento forte n bianco"
-                                                 title="Vento forte n bianco" />
+                                                 alt="Disagio fisiologico molto freddo grigio"
+                                                 title="Disagio fisiologico molto freddo grigio" />
                                         </div>
                                     </div>
                                                                     </div>
@@ -2948,13 +3727,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-piogge-diffuse-E" class="accordion-navigation active">
+        <dd id="al-accordion-legenda-elem-piogge-diffuse-E" class="accordion-navigation ">
             <a href="#al-panel-piogge-diffuse-E">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>PIOGGE DIFFUSE</h2>
                 </div>
             </a>
-            <div id="al-panel-piogge-diffuse-E" class="content active al-accordion-legenda-elem-body">
+            <div id="al-panel-piogge-diffuse-E" class="content  al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -3008,13 +3787,13 @@ Ciò premesso, si sta...                    </p>
             </div>
         </dd>
         <dt></dt>
-        <dd id="al-accordion-legenda-elem-neve-E" class="accordion-navigation ">
+        <dd id="al-accordion-legenda-elem-neve-E" class="accordion-navigation active">
             <a href="#al-panel-neve-E">
                 <div class="al-accordion-legenda-elem-header">
                     <h2>NEVE</h2>
                 </div>
             </a>
-            <div id="al-panel-neve-E" class="content  al-accordion-legenda-elem-body">
+            <div id="al-panel-neve-E" class="content active al-accordion-legenda-elem-body">
                 <div class="al-container">
                     <div class="al-container al-livello-allerta" style="margin-top: 5px">
                         <div class="al-container left al-width-25-pct">
@@ -3195,8 +3974,8 @@ Ciò premesso, si sta...                    </p>
 <section class="al-footer">
     <div class="row">
         <div class="large-12 medium-12 small-12 columns">
-            <p class="al-text-horz-center al-color-white">REGIONE LIGURIA - Piazza De Ferrari 1 - 16121 Genova - P.IVA 00849050109 – WEB: <a href="http://www.regione.liguria.it" target="_blank">www.regione.liguria.it</a></p>
-            <p class="al-text-horz-center al-color-white">ARPAL - Via Bombrini 8 - 16149 Genova -  P.IVA 01305930107 – WEB: <a href="http://www.arpal.gov.it" target="_blank">www.arpal.gov.it</a></p>
+            <p class="al-text-horz-center al-color-white">REGIONE LIGURIA - Piazza De Ferrari 1 - 16121 Genova - P.IVA 00849050109 – WEB: <a href="/web/20160119003007/http://www.regione.liguria.it/" target="_blank">www.regione.liguria.it</a></p>
+            <p class="al-text-horz-center al-color-white">ARPAL - Via Bombrini 8 - 16149 Genova -  P.IVA 01305930107 – WEB: <a href="/web/20160119003007/http://www.arpal.gov.it/" target="_blank">www.arpal.gov.it</a></p>
             <p class="al-text-horz-center al-color-white">© Tutti i diritti riservati</p>
         </div>
     </div>
@@ -3232,3 +4011,16 @@ Ciò premesso, si sta...                    </p>
     </body>
 
 </html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 0:30:07 gen 19, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 11:43:03 nov 27, 2016.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
